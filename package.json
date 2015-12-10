@@ -1,0 +1,27 @@
+{
+  "name": "closest-color",
+  "version": "1.0.0",
+  "description": "Get the closest color",
+  "main": "index.js",
+  "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonneal.com)",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonathantneal/closest-color.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonathantneal/closest-color/issues"
+  },
+  "homepage": "https://github.com/jonathantneal/closest-color",
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "color-diff": "^0.1.7"
+  },
+  "scripts": {
+    "build": "node build.js"
+  },
+  "engines": {
+    "iojs": ">=2.0.0",
+    "node": ">=0.12.0"
+  }
+}

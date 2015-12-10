@@ -1,0 +1,85 @@
+* {
+	background-color: transparent;
+	border: 0 solid;
+	box-sizing: border-box;
+	color: inherit;
+	margin: 0;
+	text-shadow: inherit;
+}
+
+body {
+	background-color: #ffffff;
+	color: #000000;
+	cursor: default;
+	align-items: center;
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	text-rendering: optimizeLegibility;
+	transition: background-color 1s, color 1s;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+body::before {
+	background-color: #ffffff;
+	bottom: 0;
+	content: "";
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transition: background-color 1s;
+}
+
+h1 {
+	font: 300 1.5vw/1 ".SFNSText-Light", "Helvetica Neue", "Lucida Grande", sans-serif;
+	position: relative;
+	text-transform: uppercase;
+}
+
+input {
+	font: 400 18vw/1 ".SFNSText-Regular", "Helvetica Neue", "Lucida Grande", sans-serif;
+	letter-spacing: 0;
+	outline: 0;
+	padding: .25em;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+a:not([href]) {
+	font: 300 3vw/1 ".SFNSText-Light", "Helvetica Neue", "Lucida Grande", sans-serif;
+	height: 1em;
+	padding: .5em 1em;
+	position: relative;
+	outline: 0;
+	min-width: 1em;
+}
+
+a:hover, a:focus, input:focus + a {
+	cursor: pointer;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	-webkit-user-select: text;
+	user-select: text;
+}
+
+a[href] {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
+
+a[href] img {
+	height: 15vw;
+	max-height: 200px;
+	max-width: 200px;
+	min-height: 100px;
+	min-width: 100px;
+	width: 15vw;
+}
