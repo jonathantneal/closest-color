@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			color = match(rgb);
 
 			var foreground = color.contrast;
-			var background = foreground === '#ffffff' ? '#000000' : '#ffffff';
+			var background = foreground === 'white' ? 'black' : 'white';
 
 			button.textContent = color.name;
 
