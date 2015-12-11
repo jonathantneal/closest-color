@@ -9,15 +9,31 @@ document.addEventListener('DOMContentLoaded', function () {
 	var afterCSS = sheet.cssRules[2].style;
 	var testCSS  = document.body.appendChild(document.createElement('style')).style;
 
+	var color;
+
 	input.addEventListener('input',  oninput);
 	input.addEventListener('change', oncopy);
+	input.addEventListener('focus', onfocus);
 
 	button.addEventListener('click', oncopy);
 
+	window.addEventListener('hashchange', onhash);
+
+	onhash();
+
+	var timeout;
+
 	function oninput() {
+		var value     = input.value;
+		var fullValue = value.length === 4 ? '#' + value.slice(1).split('').map(function (c) {
+			return c + c;
+		}).join('') : value;
+
 		testCSS.color = null;
 
-		testCSS.color = input.value;
+		testCSS.color = value;
+
+		clearTimeout(timeout);
 
 		if (testCSS.color) {
 			var rgb = { R: 0, G: 0, B: 0 };
@@ -28,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				rgb.B = B * 1;
 			});
 
-			var color = match(rgb);
+			color = match(rgb);
 
 			var foreground = color.contrast;
 			var background = foreground === '#ffffff' ? '#000000' : '#ffffff';
@@ -40,6 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			bodyCSS.textShadow = '0 -.03125em .0625em ' + background + ',0 0 .0625em ' + background;
 
 			afterCSS.backgroundColor = color.hex;
+
+			timeout = setTimeout(function () {
+				if (color.original === fullValue) {
+					location.hash = value;
+				}
+			}, 400);
 		}
 	}
 
@@ -56,5 +78,17 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.execCommand('copy');
 
 		selection.removeAllRanges();
+	}
+
+	function onhash() {
+		if (location.hash && location.hash !== input.value) {
+			input.value = location.hash;
+
+			oninput();
+		}
+	}
+
+	function onfocus() {
+		input.selectionStart = input.value.length;
 	}
 });

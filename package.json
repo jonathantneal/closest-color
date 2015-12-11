@@ -1,6 +1,6 @@
 {
   "name": "closest-color",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Get the closest color",
   "main": "index.js",
   "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonneal.com)",
@@ -15,10 +15,15 @@
   "homepage": "https://github.com/jonathantneal/closest-color",
   "devDependencies": {
     "browserify": "^12.0.1",
-    "color-diff": "^0.1.7"
+    "color-diff": "^0.1.7",
+    "cssnano": "^3.4.0",
+    "fs-extra": "^0.26.2",
+    "fs-promise": "^0.3.1",
+    "posthtml-inline-assets": "^1.0.1",
+    "uglify-js": "^2.6.1"
   },
   "scripts": {
-    "build": "node build.js"
+    "test": "node test.js"
   },
   "engines": {
     "iojs": ">=2.0.0",
