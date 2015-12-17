@@ -1,3 +1,7 @@
+## 1.2.1 (2015-12-17)
+
+- Updated: Color names moved to their own repository
+
 ## 1.2.0 (2015-12-08)
 
 - Added: CLI version

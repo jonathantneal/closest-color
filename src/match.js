@@ -1,4 +1,4 @@
-var colors   = require('./colors.json');
+var colors   = require('color-names');
 var closest  = require('color-diff').closest;
 var hex2rgb  = require('./hex2rgb');
 var contrast = require('./contrast');
